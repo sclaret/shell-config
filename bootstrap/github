@@ -1,0 +1,27 @@
+#! /bin/bash
+
+set -e
+
+mkdir -p ~/scratch
+curl -fsSL "https://raw.githubusercontent.com/sclaret/dotfiles/master/bin/trash?$(date +%s)" > ~/scratch/trash
+chmod a+x ~/scratch/trash
+~/scratch/trash ~/.ssh/id*
+rm ~/scratch/trash
+
+uuid=$(openssl rand -base64 32 | shasum | cut -c 1-7) 
+title="$USER@$HOSTNAME-$uuid"
+
+ssh-keygen -b 2048 -t rsa -f ~/.ssh/id_rsa -q -N ""
+
+key=$(cat ~/.ssh/id_rsa.pub)
+
+if [[ -n $GITHUB_PASSWORD ]]; then
+  ghpw=$GITHUB_PASSWORD
+else
+  read -s -p "Please enter Github password: " ghpw
+fi 
+
+curl \
+    --user "sclaret:$ghpw" \
+    --data "{\"title\":\"$title\", \"key\":\"$key\"}" \
+    https://api.github.com/user/keys

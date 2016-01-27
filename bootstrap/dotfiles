@@ -1,0 +1,28 @@
+#! /bin/bash
+
+set -e
+
+if [[ $(type -t git) != "file" ]]; then
+  echo "Notice: git not found"
+  if [[ $(type -t yum) == "file" ]]; then
+    sudo yum -y install git
+  else
+    echo "Error: unable to install git"
+    exit 1
+  fi
+fi
+
+cd ~
+mkdir -p customize
+cd customize
+
+mkdir -p ~/scratch
+curl -fsSL "https://raw.githubusercontent.com/sclaret/dotfiles/master/bin/trash?$(date +%s)" > ~/scratch/trash
+chmod a+x ~/scratch/trash
+~/scratch/trash dotfiles
+rm ~/scratch/trash
+
+git clone git@github.com:sclaret/dotfiles.git
+cd dotfiles
+./link.sh
+
