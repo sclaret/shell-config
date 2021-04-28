@@ -2,17 +2,13 @@
 
 alias ll="ls -alh"
 
-alias e="emacs -nw"
-alias c="clone"
-alias t="trash"
+# sudo su
+alias supe="sudo -E bash"
 
-alias h="cd ~"
-alias d="cd ~/Downloads"
-alias desk="cd ~/Desktop"
+alias e="emacs -nw"
+
+alias tl="cd /var/log; tail -f *.log"
 
 alias w="cd ~/workspace"
 alias s="cd ~/scratch"
 alias cust="cd ~/customize"
-
-alias supe="sudo -E bash"
-alias tl="cd /var/log; tail -f *.log"
