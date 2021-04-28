@@ -54,6 +54,7 @@ markdown
 
 # IDEAS
 
+- inline brew bootstrap script
 - shell completion
 - tmux
 - gopass
