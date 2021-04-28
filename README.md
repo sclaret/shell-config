@@ -6,6 +6,31 @@
 ```
 
 
+# Vim
+
+https://devhints.io/vim
+
+https://github.com/tpope/vim-fugitive
+
+
+# Prelude
+
+https://github.com/bbatsov/prelude
+
+
+# Spacemacs
+
+``` bash
+t .emacs.d/ .spacemacs*
+git clone -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
+editing style: vim, distribution: spacemacs
+~/.spacemacs
+dotspacemacs-configuration-layers
+git
+markdown
+```
+
+
 # Macos
 
 Short user, host names
@@ -37,19 +62,6 @@ Finder shortcuts: home, workspace, scratch, customize
 ![Dock](doc/dock.png)
 ![Touch Bar](doc/touchbar1.png)
 ![Touch Bar](doc/touchbar2.png)
-
-
-# Spacemacs
-
-``` bash
-t .emacs.d/ .spacemacs*
-git clone -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
-editing style: vim, distribution: spacemacs
-~/.spacemacs
-dotspacemacs-configuration-layers
-git
-markdown
-```
 
 
 # IDEAS
