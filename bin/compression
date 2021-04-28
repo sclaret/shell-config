@@ -8,3 +8,14 @@
 #  mkdir -p ${f%.*.*}
 #  tar -x --directory=${f%.*.*} -v -f $f
 #done
+
+function extract {
+  p="^.*.tar.xz$"
+  if [[ $1 =~ $p ]]; then
+    echo "Compression detected, extracting: "
+    tar -xvf $1
+  else
+    echo "No compression detected."
+  fi
+}
+

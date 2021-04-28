@@ -3,16 +3,6 @@
 # download https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.19.8.tar.xz
 # download https://aka.ms/windev_VM_virtualbox
 
-function extract {
-  p="^.*.tar.xz$"
-  if [[ $1 =~ $p ]]; then
-    echo "Compression detected, extracting: "
-    tar -xvf $1
-  else
-    echo "No compression detected."
-  fi
-}
-
 d=~/scratch/download
 mkdir -p $d
 f=$d/$(basename $1)-$(date +%s)
