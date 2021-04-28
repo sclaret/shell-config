@@ -9,10 +9,12 @@ function link_config {
     return
   elif [[ -f $2 ]]; then
     echo "file exists, backing up"
-    ~/customize/dotfiles/bin/trash $2
+    echo "NOT IMPLEMENTED"
+    exit
   elif [[ -d $2 ]]; then
     echo "directory exists, backing up"
-    ~/customize/dotfiles/bin/trash $2
+    echo "NOT IMPLEMENTED"
+    exit
   else
     echo "succeeded"
   fi
