@@ -13,6 +13,4 @@ brew cask install gitup
 
 brew cask install virtualbox virtualbox-extension-pack
 
-brew cask install protonmail-bridge
-
 brew cask install adobe-acrobat-reader
