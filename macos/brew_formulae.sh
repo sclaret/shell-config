@@ -22,7 +22,6 @@ brew install tldr
 brew install git
 brew install zile
 # vim?
-# emacs?
 
 #brew install pyenv
 #brew install nvm
