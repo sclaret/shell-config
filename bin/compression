@@ -1,0 +1,10 @@
+#! /usr/bin/env bash
+
+#xz -dk --threads=0 -v *.xz
+#pigz -dkNv *.zip
+#pigz -dkNv *.gz
+
+#for f in *.tar.gz; do
+#  mkdir -p ${f%.*.*}
+#  tar -x --directory=${f%.*.*} -v -f $f
+#done
