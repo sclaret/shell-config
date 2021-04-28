@@ -52,14 +52,6 @@ markdown
 ```
 
 
-# Runtimes
-
-``` bash
-pyenv install 3.6.4
-pyenv global 3.6.4
-```
-
-
 # IDEAS
 
 - shell completion

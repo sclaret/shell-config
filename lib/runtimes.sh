@@ -19,3 +19,12 @@ function activate_runtimes {
     . "/usr/local/opt/nvm/nvm.sh" # PATH, ENV
   fi
 }
+
+## Runtimes
+#
+#``` bash
+#pyenv install 3.6.4
+#pyenv global 3.6.4
+#```
+
+
