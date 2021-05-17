@@ -6,6 +6,33 @@
 ```
 
 
+# Backups
+
+```
+Disk Utility
+Apple SSD AP0256M Media
+Container disk1
+Add APFS Volume: workspace
+Format 4TB USB HDD GPT / APFS: usb_hdd
+
+System Preferences -> Time Machine
+Back Up Automatically
+Select Disk: time_machine_backups
+Exclude:
+Macintosh HD
+time_machine_backups
+bootable_clone
+home_backups
+workspace_backups
+storage
+
+Get Backup Pro
+bootable clone
+home
+workspace
+```
+
+
 # Vim
 
 https://devhints.io/vim
