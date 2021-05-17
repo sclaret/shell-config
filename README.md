@@ -93,6 +93,8 @@ Finder shortcuts: home, workspace, scratch, customize
 
 # IDEAS
 
+- exclude from ll (.DS_Store .Spotlight-V100 .Trashes .fseventsd .git)
+- split vim / nvim
 - inline brew bootstrap script
 - shell completion
 - tmux
