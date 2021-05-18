@@ -91,9 +91,14 @@ Finder shortcuts: home, workspace, scratch, customize
 ![Touch Bar](doc/touchbar2.png)
 
 
+# TODO
+
+- move dotfiles to workspace (backups)
+- exclude from ll (.DS_Store .Spotlight-V100 .Trashes .fseventsd .git)
+
+
 # IDEAS
 
-- exclude from ll (.DS_Store .Spotlight-V100 .Trashes .fseventsd .git)
 - split vim / nvim
 - inline brew bootstrap script
 - shell completion
@@ -107,3 +112,8 @@ Finder shortcuts: home, workspace, scratch, customize
 - ssh keys vault/agent/keychain
 - pipeline builder to filter logs (tl)
 - alternate shells
+
+
+# PROBLEMS
+
+- 
