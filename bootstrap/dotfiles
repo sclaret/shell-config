@@ -12,17 +12,13 @@ if [[ $(type -t git) != "file" ]]; then
   fi
 fi
 
-cd ~
-mkdir -p customize
-cd customize
+cd ~/workspace
 
-mkdir -p ~/scratch
-curl -fsSL "https://raw.githubusercontent.com/sclaret/dotfiles/master/bin/trash?$(date +%s)" > ~/scratch/trash
-chmod a+x ~/scratch/trash
-~/scratch/trash dotfiles
-rm ~/scratch/trash
+mv dotfiles dotfiles$(date +%s)
 
 git clone git@github.com:sclaret/dotfiles.git
+
 cd dotfiles
-./link.sh
+
+./bootstrap/link.sh
 
