@@ -2,6 +2,8 @@
 
 alias ll="ls -alh"
 
+alias rmm="rm -rf"
+
 # sudo su
 alias supe="sudo -E bash"
 
