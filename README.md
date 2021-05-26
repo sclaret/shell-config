@@ -6,46 +6,31 @@
 ```
 
 
-# Backups
-
-```
-Disk Utility
-Apple SSD AP0256M Media
-Container disk1
-Add APFS Volume: workspace
-Format 4TB USB HDD GPT / APFS: usb_hdd
-
-System Preferences -> Time Machine
-Back Up Automatically
-Select Disk: time_machine_backups
-Exclude:
-Macintosh HD
-time_machine_backups
-bootable_clone
-home_backups
-workspace_backups
-storage
-
-Get Backup Pro
-bootable clone
-home
-workspace
-```
-
-
 # Vim
 
-https://devhints.io/vim
+- https://devhints.io/vim
+- https://blog.sanctum.geek.nz/vim-anti-patterns/
 
-https://github.com/tpope/vim-fugitive
+- https://github.com/hakluke/how-to-exit-vim
+- https://begriffs.com/posts/2019-07-19-history-use-vim.html
+- http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/
+- https://www.openvim.com
+- https://vim.fandom.com/wiki/Using_tab_pages
+- https://www.brianstorti.com/vim-registers/
+
+- https://neovim.io
+- https://github.com/tpope/vim-fugitive
+
+- :help tutor
+- Practical Vim
+- Modern Vim
 
 
-# Prelude
+# Emacs
 
-https://github.com/bbatsov/prelude
+- https://www.gnu.org/software/emacs/
 
-
-# Spacemacs
+- https://github.com/bbatsov/prelude
 
 ``` bash
 t .emacs.d/ .spacemacs*
@@ -56,39 +41,6 @@ dotspacemacs-configuration-layers
 git
 markdown
 ```
-
-
-# Macos
-
-Short user, host names
-
-```
-Software Update
-
-App store
-- Xcode
-
-#xcode - Preferences - Locations - Command line tools = "Xcode 10.1"
-#xcode-select --install
-
-Setapp
-
-Terminal Preferences - Profiles - Keyboard - Use option as meta key
-Terminal Preferences - Profiles - Text - Font 14pt
-
-Setting - General - Appearance Dark, Close windows when quitting an app
-Settings - Keyboard - Adjust brightness in low light, Turn backlight off after 30s
-Settings - Mission Control - Hot Corners - null, lock screen, put display to sleep, mission control
-Settings - Accessibility - Trackpad Options - Enable dragging with 3 fingers, Bump scroll speed
-Settings - Trackpad
-Settings - Keyboard - Customize Touch Bar
-
-Finder shortcuts: home, workspace, scratch, customize
-```
-
-![Dock](doc/dock.png)
-![Touch Bar](doc/touchbar1.png)
-![Touch Bar](doc/touchbar2.png)
 
 
 # TODO
