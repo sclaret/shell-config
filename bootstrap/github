@@ -1,25 +1,94 @@
-#! /bin/bash
+#! /usr/bin/env bash
+
+echo "Archiving ssh keys if present"
+cd ~/.ssh
+mv -v id_rsa id_rsa$(date +%s) 
+mv -v id_rsa.pub id_rsa.pub$(date +%s)
+ls -alh
+echo
+#exit
 
 set -e
 
-cd ~/.ssh
-mv id_rsa id_rsa$(date +%s)
-mv id_rsa.pub id_rsa.pub$(date +%s)
-
 uuid=$(openssl rand -base64 32 | shasum | cut -c 1-7) 
 title="$USER@$HOSTNAME-$uuid"
-
-ssh-keygen -b 2048 -t rsa -f ~/.ssh/id_rsa -q -N ""
-
+echo "Creating key $title"
+ssh-keygen -v -b 2048 -t rsa -f ~/.ssh/id_rsa -N ""
 key=$(cat ~/.ssh/id_rsa.pub)
+echo
+#exit
 
-if [[ -n $GITHUB_PASSWORD ]]; then
-  ghpw=$GITHUB_PASSWORD
+# -v
+# --trace-ascii
+h1="Content-Type: application/json"
+h2="Accept: application/vnd.github.v3+json"
+
+o1=$( curl \
+	-X POST -sS \
+	-H "$h1" -H "$h2" \
+	--data '{"scope":"admin:public_key"}' \
+	https://github.com/login/device/code?client_id=15d2f2e27e18dba21769 )  
+#echo $o1
+# {"device_code":"REMOVED","user_code":"REMOVED","verification_uri":"https://github.com/login/device","expires_in":899,"interval":5}
+
+if  [[ $o1 =~ device_code\":\"([^\"]*)\" ]]; then
+	device_code=${BASH_REMATCH[1]}  
+	echo "device code: $device_code"
 else
-  read -s -p "Please enter Github password: " ghpw
-fi 
+	echo "ERROR: device code not found"
+	echo "DEBUG: $o1"
+	exit 1
+fi
 
+if  [[ $o1 =~ user_code\":\"([^\"]*)\" ]]; then
+	user_code=${BASH_REMATCH[1]}
+	echo "user code: $user_code"
+else
+	echo "ERROR: user code not found"
+	echo "DEBUG: $o1"
+	exit 1  
+fi
+echo
+#exit
+
+while [ 1 ] 
+do
+	d="{\"device_code\":\"$device_code\","
+	d+="\"grant_type\":\"urn:ietf:params:oauth:grant-type:device_code\"}"
+	o2=$( curl \
+		-X POST -sS \
+		-H "$h1" -H "$h2" \
+		--data $d \
+		https://github.com/login/oauth/access_token?client_id=15d2f2e27e18dba21769 )
+	# echo $o2
+	# {"error":"authorization_pending","error_description":"The authorization request is still pending.","error_uri":"https://docs.github.com/developers/apps/authorizing-oauth-apps#error-codes-for-the-device-flow"}
+	# {"access_token":"REMOVED","token_type":"bearer","scope":"admin:public_key"}
+	# {"error":"incorrect_device_code","error_description":"The device_code provided is not valid.","error_uri":"https://docs.github.com/developers/apps/authorizing-oauth-apps#error-codes-for-the-device-flow"}
+	#
+	if [[ $o2 =~ authorization_pending ]]; then
+		echo "Please go to https://github.com/login/device"
+		echo "and enter user code: $user_code"
+		echo
+		sleep 6
+		continue
+	elif [[ $o2 =~ access_token\":\"([^\"]*)\" ]]; then
+		access_token=${BASH_REMATCH[1]}
+		echo "access_token: $access_token"
+		break
+	else
+		echo "ERROR: unexpected response while polling for access token"
+		echo "DEBUG: $o2"
+		exit 1
+	fi
+done
+echo
+#exit
+
+echo "Adding public key to github account"
+h3="Authorization: token $access_token" 
 curl \
-    --user "sclaret:$ghpw" \
-    --data "{\"title\":\"$title\", \"key\":\"$key\"}" \
-    https://api.github.com/user/keys
+	-X POST -sS \
+	-H "$h1" -H "$h2" -H "$h3" \
+	--data "{\"title\":\"$title\", \"key\":\"$key\"}" \
+	https://api.github.com/user/keys
+
