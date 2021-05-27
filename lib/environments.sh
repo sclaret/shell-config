@@ -6,7 +6,7 @@ function activate_environments {
 }
 
 function activate_dev_environment {
-  mkdir -p ~/workspace ~/scratch/archive ~/customize
+  true
 }
 
 function activate_rpi_environment {

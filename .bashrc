@@ -1,3 +1,5 @@
+# echo "bash-${BASH_VERSINFO[0]}.${BASH_VERSINFO[1]}.${BASH_VERSINFO[2]}"
+
 if [[ -n $PS1 ]]; then
 
   if [[ "${BASH_VERSINFO[0]}" -lt "4" ]]; then
@@ -13,22 +15,22 @@ if [[ -n $PS1 ]]; then
   }
 
   DOTFILES_DIR=$(get_source_dir)
-  CUSTOMIZE_DIR=$(dirname $DOTFILES_DIR)
+  DEPLOY_DIR=$(dirname $DOTFILES_DIR)
 
-  export EDITOR="emacs -nw"
+  #export EDITOR="emacs -nw"
   export PAGER="less"
+  
   export XDG_CONFIG_HOME=~/.config
 
   source ~/.bash_aliases
 
   export PATH=$PATH:$DOTFILES_DIR/bin
+  
   source <(cat $DOTFILES_DIR/lib/*.sh)
-
-  configure_prompt 3
-
-  activate_completions
+  activate_prompt 5 
+  #activate_completions
   activate_environments
-  activate_runtimes
-  activate_private_dotfiles $CUSTOMIZE_DIR
+  #activate_runtimes
+  #activate_private_dotfiles $CUSTOMIZE_DIR
 
 fi
