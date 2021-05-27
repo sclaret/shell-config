@@ -1,3 +1,62 @@
+# Brew
+
+https://brew.sh
+
+https://github.com/Homebrew/install
+
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+https://formulae.brew.sh
+
+https://github.com/Homebrew/brew
+
+https://github.com/Homebrew/homebrew-core
+
+https://github.com/Homebrew/homebrew-cask
+
+https://github.com/Homebrew/homebrew-services
+
+```
+brew list
+brew update
+brew upgrade -n
+
+brew search bash
+brew info bash
+brew install bash
+brew uninstall bash
+
+brew search --cask chrome
+brew info google-chrome
+brew install --cask google-chrome
+
+brew config
+brew doctor -v
+```
+
+https://github.com/homebrew/install#uninstall-homebrew
+
+```
+brew remove --force $(brew list) --ignore-dependencies
+brew uninstall $(brew list --cask)
+brew cleanup
+brew cleanup -s
+rm -rf "$(brew --cache)
+```
+
+
+Related history
+- https://scriptingosx.com/2019/06/moving-to-zsh/
+
+Ideas
+- disable chrome autoupdates
+
+
+# Setapp
+
+
 # Apple
 
 ```
@@ -22,13 +81,18 @@ Keyboard - Adjust brightness in low light, Turn backlight off after 30s
 Mission Control - Hot Corners - null, mission control, desktop, null
 Accessibility - Pointer Control - Trackpad Options - Enable dragging with 3 fingers, Bump scrolling speed
 Trackpad - Bump tracking speed
+Displays - Optimize for DELL U2711
+Software update:
+Check for updates 
+Download new updates when available
+Install system data files and security updates
 
 Finder 
+View - Show Path Bar
 Favorites
-+ home, workspace, scratch 
++ workspace, scratch, deploy, home, desktop 
 - Setapp, Documents
-Locations, Tags 
-Collapse
+Collapse: locations, Tags 
 ```
 
 ![Dock](dock.png)
@@ -36,15 +100,9 @@ Collapse
 ![Touch Bar](touchbar2.png)
 
 
-# Backups
+## Time Machine
 
 ```
-Disk Utility
-Apple SSD AP0256M Media
-Container disk1
-Add APFS Volume: workspace
-Format 4TB USB HDD GPT / APFS: usb_hdd
-
 System Preferences -> Time Machine
 Back Up Automatically
 Select Disk: time_machine_backups
@@ -55,12 +113,11 @@ bootable_clone
 home_backups
 workspace_backups
 storage
-
-Get Backup Pro
-bootable clone
-home
-workspace
 ```
 
 
-# Setapp
+# Get Backup Pro
+
+- bootable clone
+- home
+- workspace

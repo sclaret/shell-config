@@ -43,6 +43,7 @@ Set space quotas?
 Apple SSD AP0256M Media
 Container disk1
 Add APFS volume workspace
+ln -s /Volumes/workspace workspace
 
 
 # Notes
@@ -92,5 +93,4 @@ Get Backup Pro:
 - Nightly sync workspace to fileserver, btrfs snapshot (max 100GB)
 - Fileserver encrypts, drops to remote
 
-Check how far back time machine ..hourly.. snapshots retained in practice
 ```
