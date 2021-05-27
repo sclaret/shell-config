@@ -1,0 +1,13 @@
+# /usr/bin/env bash
+
+set -x
+cd ~
+rm -rf .bash*
+rm -rf .config*
+rm -rf .ssh*
+rm -rf workspace/deploy/dotfiles*
+set +x
+
+echo "Please eliminate github keys, tokens, secrets: "
+echo "https://github.com/settings/keys"
+echo "https://github.com/settings/developers"
