@@ -1,24 +1,37 @@
-#! /bin/bash
+# /usr/bin/env bash
 
-set -e
+set -x
+
+mkdir -p ~/workspace
+mkdir -p ~/workspace/deploy
+mkdir -p ~/workspace/scratch
+echo
 
 if [[ $(type -t git) != "file" ]]; then
-  echo "Notice: git not found"
-  if [[ $(type -t yum) == "file" ]]; then
-    sudo yum -y install git
-  else
-    echo "Error: unable to install git"
-    exit 1
-  fi
+	echo "Notice: git not found"
+	if [[ $(type -t yum) == "file" ]]; then
+		sudo yum -y install git
+	else
+		echo "Error: unable to install git"
+		exit 1
+  	fi
 fi
+echo
 
-cd ~/workspace
+cd ~/workspace/deploy
+pwd
+ls
+echo
 
+echo "Archiving dotfiles if present"
 mv dotfiles dotfiles$(date +%s)
+ls
+echo
 
 git clone git@github.com:sclaret/dotfiles.git
+echo
 
 cd dotfiles
 
-./bootstrap/link.sh
-
+source ./bootstrap/link.sh
+echo
