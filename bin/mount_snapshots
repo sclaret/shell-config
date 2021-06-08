@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+if [[ ! -d /Volumes/.snapshots ]]; then
+	sudo mkdir /Volumes/.snapshots
+	sudo chown sc /Volumes/.snapshots
+fi
+
+if [[ $# -ne 1 ]]; then
+	echo "usage: mount_snapshots VOLUME"
+	echo "       mount_snapshots workspace"
+	exit 1
+fi
+
+set -x
+tmutil listlocalsnapshots /Volumes/$1 | grep com | while read snapshot; do
+	mkdir -p /Volumes/.snapshots/$snapshot
+	mount_apfs -s $snapshot /Volumes/$1 /Volumes/.snapshots/$snapshot
+done
+set +x

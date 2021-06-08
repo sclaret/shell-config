@@ -11,6 +11,9 @@ alias s="cd ~/workspace/scratch"
 alias d="cd ~/workspace/deploy"
 alias h="cd ~"
 
+alias ms="mount_snapshots workspace"
+alias ums="unmount_snapshots"
+
 alias gs="git status"
 alias gl="git log"
 

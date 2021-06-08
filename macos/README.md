@@ -109,10 +109,19 @@ Select Disk: time_machine_backups
 Exclude:
 Macintosh HD
 time_machine_backups
-bootable_clone
-home_backups
-workspace_backups
-storage
++ all APFS volumes on usb HDD
+
+sudo echo "" > sc.cron.log
+sudo chown sc /var/log/sc.cron.log
+
+$ crontab -l
+crontab: no crontab for sc
+
+$ crontab -e
+*/5 * * * *  tmutil localsnapshot >>/var/log/sc.cron.log 2>&1
+
+$ crontab -l
+*/5 * * * *  tmutil localsnapshot >>/var/log/sc.cron.log 2>&1
 ```
 
 

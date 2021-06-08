@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -x
+ls /Volumes/.snapshots | while read snapshot; do
+	umount /Volumes/.snapshots/$snapshot
+	rmdir /Volumes/.snapshots/$snapshot
+done
+set +x

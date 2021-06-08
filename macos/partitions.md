@@ -54,43 +54,4 @@ mkfs.btrfs -f /dev/sdb3 -L btrfspart
 lsblk -f
 
 apt-get install btrfs-tools
-
-
-## GPB
-
-GPB seems to create 3 additional apfs volumes
-
-diskutil list disk3
-/dev/disk3 (synthesized):
-   #:                       TYPE NAME                    SIZE       IDENTIFIER
-   0:      APFS Container Scheme -                      +3.2 TB     disk3
-                                 Physical Store disk2s4
-   1:                APFS Volume ⁨home_backups⁩            57.3 GB    disk3s3
-   2:                APFS Volume ⁨workspace_backups⁩       1.9 MB     disk3s4
-   3:                APFS Volume ⁨time_machine_backups⁩    52.8 MB    disk3s5
-   4:                APFS Volume ⁨storage⁩                 847.9 KB   disk3s1
-   5:                APFS Volume ⁨bootable_clone - Data⁩   137.0 GB   disk3s6
-   6:                APFS Volume ⁨bootable_clone⁩          15.3 GB    disk3s2
-   7:                APFS Volume ⁨Preboot⁩                 483.4 MB   disk3s7
-   8:                APFS Volume ⁨Recovery⁩                622.1 MB   disk3s8
-
-
-# IDEAS
-
-Increase Backup Frequency
-
-Run tmutil localsnapshot once per minute on mains power
-On battery power, every 5 minutes.
-
-Get Backup Pro:
-
-- Schedule wakeup
-- Prune snapshots 
-- Test clone restore
-- Nightly sync workspace backup to hdd, apfs snapshot
-- Nightly sync home directory backup to hdd, apfs snapshot
-- Nightly sync home directory to fileserver, btrfs snapshot (max 300GB)
-- Nightly sync workspace to fileserver, btrfs snapshot (max 100GB)
-- Fileserver encrypts, drops to remote
-
 ```
