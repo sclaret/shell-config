@@ -46,7 +46,6 @@ brew cleanup -s
 rm -rf "$(brew --cache)
 ```
 
-
 Related history
 - https://scriptingosx.com/2019/06/moving-to-zsh/
 
@@ -76,19 +75,57 @@ Profiles - Keyboard - Use option as meta key
 Profiles - Text - Font 18pt
 
 System Preferences
+
 General - Appearance Dark
-Keyboard - Adjust brightness in low light, Turn backlight off after 30s
+Sidebar icon size large
+Show scroll bars always
+
+Desktop & Screen Saver black
+
 Mission Control - Hot Corners - null, mission control, desktop, null
+
+Notifications
+Do Not Disturb from 6pm to 6am
+
+Internet Accounts
+iCloud - disable mail, news, stocks
+
 Accessibility - Pointer Control - Trackpad Options - Enable dragging with 3 fingers, Bump scrolling speed
-Trackpad - Bump tracking speed
-Displays - Optimize for DELL U2711
+
+Extensions - disable added extensions
+
+Security & Privacy 
+General
+Require password 4 hours after sleep
+Allow apps downloaded from App Store and identified developers
+FileVault On, create a recovery key and do not use my iCloud account
+Firewall On - Block all incoming connections
+Privacy
+Apple advertising - uncheck personalized ads
+Analytics - uncheck all
+
 Software update:
 Check for updates 
 Download new updates when available
 Install system data files and security updates
 
-Finder 
-View - Show Path Bar
+Keyboard
+Adjust brightness in low light
+Turn backlight off after 30s
+Press Fn key to show emoji & symbols
+Modifier keys - Caps Lock Key = Escape
+
+Trackpad - Bump tracking speed
+
+Displays 
+Display - Optimize for DELL U2711 / Best for DELL U2711
+Automatically adjust brightness
+Night Shift - 4pm to 6am, 75%
+
+Battery - Health - Manage battery longevity
+
+Finder
+View - Show Path Bar, Show Tab Bar
 Favorites
 + workspace, scratch, deploy, home, desktop 
 - Setapp, Documents
