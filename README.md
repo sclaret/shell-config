@@ -1,6 +1,13 @@
 # Bootstrap
 
 ``` bash
+#su -
+##apt update; apt upgrade
+#apt install curl
+#exit
+
+/bin/bash <(curl -fsSL "https://raw.githubusercontent.com/sclaret/dotfiles/master/bootstrap/apps?$(date +%s)")
+
 /bin/bash <(curl -fsSL "https://raw.githubusercontent.com/sclaret/dotfiles/master/bootstrap/github?$(date +%s)")
 /bin/bash <(curl -fsSL "https://raw.githubusercontent.com/sclaret/dotfiles/master/bootstrap/dotfiles?$(date +%s)")
 

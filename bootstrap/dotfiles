@@ -7,17 +7,6 @@ mkdir -p ~/workspace/deploy
 mkdir -p ~/workspace/scratch
 echo
 
-if [[ $(type -t git) != "file" ]]; then
-	echo "Notice: git not found"
-	if [[ $(type -t yum) == "file" ]]; then
-		sudo yum -y install git
-	else
-		echo "Error: unable to install git"
-		exit 1
-  	fi
-fi
-echo
-
 cd ~/workspace/deploy
 pwd
 ls
