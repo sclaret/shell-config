@@ -3,6 +3,7 @@
 set -x
 cd ~
 rm -rf .bash*
+rm -rf .profile
 rm -rf .config*
 rm -rf .ssh*
 rm -rf workspace/deploy/dotfiles*
