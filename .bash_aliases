@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 
 alias ll="ls -alh"
-alias rmm="rm -rf"
+alias rw='function _inner(){ set -x; tmutil localsnapshot; rm -rf "$@"; set +x; };_inner'
 
 
 # sudo su
