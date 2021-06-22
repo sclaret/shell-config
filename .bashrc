@@ -17,7 +17,9 @@ if [[ -n $PS1 ]]; then
   DOTFILES_DIR=$(get_source_dir)
   DEPLOY_DIR=$(dirname $DOTFILES_DIR)
 
+  export EDITOR="vim"
   #export EDITOR="emacs -nw"
+  
   export PAGER="less"
   
   export XDG_CONFIG_HOME=~/.config
