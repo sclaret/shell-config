@@ -35,13 +35,6 @@ alias gca="git commit --amend --reuse-message=HEAD"
 alias gp="git push"
 alias gpf="git push --force"
 
-alias gst="git stash"
-alias gstp="git stash pop"
-
-alias gres="git reset HEAD~1"
-
-alias greb="git rebase -i" #HEAD~3
-
 
 alias v="vim"
 alias e="emacs -nw"
