@@ -23,6 +23,7 @@ alias gl="git log"
 alias glp="git log -p"
 
 alias ga="git add"
+alias gai="git add -i" #patch 1 <enter>
 alias grm="git rm"
 alias gmv="git mv"
 
