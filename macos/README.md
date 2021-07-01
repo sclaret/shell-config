@@ -160,10 +160,3 @@ $ crontab -e
 $ crontab -l
 */5 * * * *  tmutil localsnapshot >>/var/log/sc.cron.log 2>&1
 ```
-
-
-# Get Backup Pro
-
-- bootable clone
-- home
-- workspace
